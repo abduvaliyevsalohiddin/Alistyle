@@ -10,3 +10,20 @@ class HomeNoView(View):
 class HomeView(View):
     def get(self, request):
         return render(request, "page-index.html")
+
+
+class BolimlarView(View):
+    def get(self, request):
+        return render(request, "page-category.html")
+
+
+class MahsulotlarView(View):
+    def get(self, request):
+        return render(request, "page-listing-grid.html")
+
+
+class MahsulotView(View):
+    def get(self, request):
+        return render(request, "page-detail-product.html")
+
+
