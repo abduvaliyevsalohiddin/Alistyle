@@ -8,7 +8,7 @@ class ProfilAdmin(UserAdmin):
     model = Profil
     fieldsets = UserAdmin.fieldsets + (
         ('Profil ustunlari', {
-            'fields': ('tel', 'davlat', "jins", "shahar")
+            'fields': ('tel', 'davlat', "jins", "shahar", "tasdiqlash_kodi", "tasdiqlangan")
         }),
     )
 
