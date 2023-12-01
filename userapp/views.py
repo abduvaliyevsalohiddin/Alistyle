@@ -9,11 +9,17 @@ from eskiz.client import SMSClient
 
 class LoginView(View):
     def get(self, request):
-        if request.user.is_authenticated and request.user.tasdiqlangan:
-            return render(request, "page-user-login.html")
-        elif request.user.tasdiqlangan == False:
-            return redirect("user/tasdiqlash")
-        return redirect("/user/login")
+        return render(request, "page-user-login.html")
+
+    def post(self, request):
+        user = authenticate(
+            username=request.POST.get('username'),
+            password=request.POST.get('password')
+        )
+        if user is None:
+            return redirect('/user/login/')
+        login(request, user)
+        return redirect('/asosiy/home/')
 
 
 class RegisterView(View):
@@ -56,5 +62,5 @@ class KodTasdiqlash(View):
         if profil.tasdiqlash_kodi == request.POST.get("k"):
             profil.tasdiqlangan = True
             profil.save()
-            return redirect("/user/login")
+            return redirect("/user/login/")
         return redirect("/user/tasdiqlash/")
