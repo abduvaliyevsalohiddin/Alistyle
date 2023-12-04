@@ -21,7 +21,7 @@
 	<div class="row">
 		<aside class="col-md-6">
 <div class="card">
-<article class="gallery-wrap"> 
+<article class="gallery-wrap">
 	<div class="img-big-wrap">
 	  <div> <a href="#"><img src="{{ mahsulot.media_set.first.rasm.url }}"></a></div>
 	</div> <!-- slider-product.// -->
@@ -41,21 +41,21 @@
 <div class="rating-wrap my-3">
 	<ul class="rating-stars">
 		<li style="width:{{ ortachasi }}%" class="stars-active">
-			<i class="fa fa-star"></i> <i class="fa fa-star"></i> 
-			<i class="fa fa-star"></i> <i class="fa fa-star"></i> 
-			<i class="fa fa-star"></i> 
+			<i class="fa fa-star"></i> <i class="fa fa-star"></i>
+			<i class="fa fa-star"></i> <i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
 		</li>
 		<li>
-			<i class="fa fa-star"></i> <i class="fa fa-star"></i> 
-			<i class="fa fa-star"></i> <i class="fa fa-star"></i> 
-			<i class="fa fa-star"></i> 
+			<i class="fa fa-star"></i> <i class="fa fa-star"></i>
+			<i class="fa fa-star"></i> <i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
 		</li>
 	</ul>
 	<small class="label-rating text-muted">{{ mahsulot.izoh_set.count }} reviews</small>
 	<small class="label-rating text-success"> <i class="fa fa-clipboard-check"></i> 154 orders </small>
 </div> <!-- rating-wrap.// -->
 
-<div class="mb-3"> 
+<div class="mb-3">
 	<var class="price h4">USD {{ mahsulot.narx }}</var>
 	<span class="text-muted">{{ mahsulot.chegirma }}% chegirma</span>
 </div> <!-- price-detail-wrap .// -->
@@ -97,11 +97,11 @@
 			</div>
 		</div> <!-- col.// -->
 		<div class="form-group col-md">
-			<a href="#"  class="btn  btn-primary"> 
-				<i class="fas fa-shopping-cart"></i> <span class="text">Add to cart</span> 
+			<a href="#"  class="btn  btn-primary">
+				<i class="fas fa-shopping-cart"></i> <span class="text">Add to cart</span>
 			</a>
 			<a href="#" class="btn btn-light">
-        <i class="fas fa-envelope"></i> <span class="text">Contact supplier</span> 
+        <i class="fas fa-envelope"></i> <span class="text">Contact supplier</span>
 			</a>
 		</div> <!-- col.// -->
 	</div> <!-- row.// -->
@@ -118,25 +118,25 @@
 <!-- ========================= SECTION CONTENT END// ========================= -->
 
 <div class="container d-flex justify-content-center align-items-center">
-<form method="post"> {%csrf_token%}
+<form method="post"> {% csrf_token %}
   <div class="form-group">
     <label for="smileyRating">Your rating</label>
    <div class="rating-container d-flex" id="smileyRating" style="gap: 20px;">
-      <input type="radio" name="rating" value="1" id="smiley1" style="display:none;">
+      <input type="radio" name="baho" value="1" id="smiley1" style="display:none;" >
       <label class="smiley-face" for="smiley1" style="cursor: pointer">&#9785;</label>
-      <input type="radio" name="rating" value="2" id="smiley2" style="display:none;">
+      <input type="radio" name="baho" value="2" id="smiley2" style="display:none;">
       <label class="smiley-face" for="smiley2" style="cursor: pointer">&#x1F610;</label>
-      <input type="radio" name="rating" value="3" id="smiley3" style="display:none;">
+      <input type="radio" name="baho" value="3" id="smiley3" style="display:none;" checked>
       <label class="smiley-face" for="smiley3" style="cursor: pointer">&#x1F642;</label>
-      <input type="radio" name="rating" value="4" id="smiley4" style="display:none;">
+      <input type="radio" name="baho" value="4" id="smiley4" style="display:none;">
       <label class="smiley-face" for="smiley4" style="cursor: pointer">&#x1F600;</label>
-      <input type="radio" name="rating" value="5" id="smiley5" style="display:none;">
+      <input type="radio" name="baho" value="5" id="smiley5" style="display:none;">
       <label class="smiley-face" for="smiley5" style="cursor: pointer">&#x1F929;</label>
     </div>
   </div>
   <div class="form-group">
     <label for="exampleInputComment1">Your comment</label>
-    <input type="text" class="form-control" id="exampleInputComment1" aria-describedby="commentHelp" placeholder="Enter your comment" name="comment">
+    <input type="text" class="form-control" id="exampleInputComment1" aria-describedby="commentHelp" placeholder="Enter your comment" name="matn">
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
@@ -171,15 +171,15 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="row">
           <div class="col-sm-2">
             <div class="text-center">
-              {% if izoh.reyting == 1 %}
+              {% if izoh.baho == 1 %}
                 <span class="smiley-face">&#9785;</span>
-              {% elif izoh.reyting == 2 %}
+              {% elif izoh.baho == 2 %}
                 <span class="smiley-face">&#x1F610;</span>
-              {% elif izoh.reyting == 3 %}
+              {% elif izoh.baho == 3 %}
                 <span class="smiley-face">&#x1F642;</span>
-              {% elif izoh.reyting == 4 %}
+              {% elif izoh.baho == 4 %}
                 <span class="smiley-face">&#x1F600;</span>
-              {% elif izoh.reyting == 5 %}
+              {% elif izoh.baho == 5 %}
                 <span class="smiley-face">&#x1F929;</span>
               {% endif %}
             </div>
@@ -188,7 +188,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <p>{{ izoh.matn }}</p>
              <div class="user d-flex" style="gap: 300px">
                 <p><small class="text-muted">{{ izoh.sana }}</small></p>
-                <p><small class="text-muted">{{ izoh.profil.ism }}</small></p>
+                <p><small class="text-muted">{{ izoh.profil.first_name }} {{ izoh.profil.last_name }}</small></p>
             </div>
           </div>
         </div>
@@ -196,6 +196,7 @@ document.addEventListener("DOMContentLoaded", () => {
       {% empty %}
         <p>No reviews yet.</p>
       {% endfor %}
+
     </div>
   </div>
 </div>
@@ -220,7 +221,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <small class="form-text">We’ll never share your email address with a third-party. </small>
   </div> <!-- col-md-6.// -->
 </div>
-  
+
 
 </div>
 </section>
@@ -283,7 +284,7 @@ document.addEventListener("DOMContentLoaded", () => {
     </section>  <!-- footer-top.// -->
 
     <section class="footer-bottom text-center">
-    
+
         <p class="text-white">Privacy Policy - Terms of Use - User Information Legal Enquiry Guide</p>
         <p class="text-muted"> &copy 2019 Company name, All rights reserved </p>
         <br>

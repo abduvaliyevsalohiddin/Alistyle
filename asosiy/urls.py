@@ -5,6 +5,6 @@ urlpatterns = [
     path('home/', HomeView.as_view()),
     path('bolimlar/', BolimlarView.as_view()),
     path('bolim/<int:pk>/', MahsulotlarView.as_view()),
-    path('mahsulot/<int:pk>/', MahsulotView.as_view()),
+    path('mahsulot/<int:pk>/', MahsulotView.as_view(), name='mahsulot_id'),
 
 ]

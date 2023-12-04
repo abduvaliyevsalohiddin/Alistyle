@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from .models import *
 from django.db.models import Avg
@@ -49,3 +49,14 @@ class MahsulotView(View):
             "ortachasi": ortachasi
         }
         return render(request, "page-detail-product.html", content)
+
+    def post(self, request, pk):
+        from datetime import date
+        Izoh.objects.create(
+            profil=request.user,
+            mahsulot=Mahsulot.objects.get(id=pk),
+            sana=date.today(),
+            matn=request.POST.get("matn"),
+            baho=request.POST.get("baho"),
+        )
+        return redirect("mahsulot_id", pk)
