@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views import View
 from .models import *
+from asosiy.models import Mahsulot
 
 
 class TanlanganlarView(View):
@@ -59,3 +60,13 @@ class TalanganDelete(View):
     def get(self, request, pk):
         Tanlangan.objects.filter(id=pk).delete()
         return redirect("/buyurtma/tanlanganlar/")
+
+
+class TalanganCreate(View):
+    def get(self, request, pk):
+        savat = SavatItem.objects.get(id=pk)
+        Tanlangan.objects.create(
+            profil=request.user,
+            mahsulot=savat.mahsulot
+        )
+        return redirect("/buyurtma/savatlar/")

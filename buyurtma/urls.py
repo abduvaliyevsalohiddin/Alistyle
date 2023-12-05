@@ -8,5 +8,6 @@ urlpatterns = [
     path('miqdor_q/<int:pk>/', MiqdorQosh.as_view()),
     path('miqdor_k/<int:pk>/', MiqdorKamaytir.as_view()),
     path('t_ochir/<int:pk>/', TalanganDelete.as_view()),
+    path('tanlangan_qosh/<int:pk>/', TalanganCreate.as_view()),
 
 ]
