@@ -69,4 +69,16 @@ class TalanganCreate(View):
             profil=request.user,
             mahsulot=savat.mahsulot
         )
+
         return redirect("/buyurtma/savatlar/")
+
+
+class SavatItemCreate(View):
+    def get(self, request, pk):
+        tanlangan = Tanlangan.objects.get(mahsulot__id=pk)
+        SavatItem.objects.create(
+            mahsulot=tanlangan.mahsulot,
+            savat=Savat.objects.get(profil=request.user),
+            summa=0,
+        )
+        return redirect("/buyurtma/tanlanganlar/")
