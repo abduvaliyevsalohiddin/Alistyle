@@ -53,3 +53,9 @@ class MiqdorKamaytir(View):
             item.miqdor -= 1
         item.save()
         return redirect("/buyurtma/savatlar/")
+
+
+class TalanganDelete(View):
+    def get(self, request, pk):
+        Tanlangan.objects.filter(id=pk).delete()
+        return redirect("/buyurtma/tanlanganlar/")
