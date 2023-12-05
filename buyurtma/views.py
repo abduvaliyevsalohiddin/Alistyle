@@ -82,3 +82,9 @@ class SavatItemCreate(View):
             summa=0,
         )
         return redirect("/buyurtma/tanlanganlar/")
+
+
+class SavatItemDelete(View):
+    def get(self, request, pk):
+        SavatItem.objects.filter(id=pk).delete()
+        return redirect("/buyurtma/savatlar/")
