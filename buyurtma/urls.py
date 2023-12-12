@@ -12,4 +12,6 @@ urlpatterns = [
     path('item_qosh/<int:pk>/', SavatItemQosh.as_view()),
     path('ochirish/<int:pk>/', SavatItemDelete.as_view()),
 
+    path('buyurtma_qosh/', BuyurtmaQosh.as_view()),
+
 ]

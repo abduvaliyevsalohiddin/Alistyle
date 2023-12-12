@@ -7,8 +7,10 @@ class Profil(AbstractUser):
     davlat = models.CharField(max_length=30, blank=True)
     jins = models.CharField(max_length=10, blank=True)
     shahar = models.CharField(max_length=30, blank=True)
-    tasdiqlash_kodi = models.CharField(max_length=30,blank=True)
+    tasdiqlash_kodi = models.CharField(max_length=30, blank=True)
     tasdiqlangan = models.BooleanField(default=False)
+    manzil = models.CharField(max_length=300, blank=True)
+    zipcode = models.CharField(max_length=10, blank=True)
 
     def __str__(self):
         return self.username

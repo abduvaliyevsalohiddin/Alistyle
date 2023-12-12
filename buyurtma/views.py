@@ -14,7 +14,18 @@ class TanlanganlarView(View):
 
 class BuyurtmalarView(View):
     def get(self, request):
-        return render(request, "page-profile-orders.html")
+        content = {
+            "buyurtmalar": Buyurtma.objects.filter(savat__profil=request.user)
+        }
+        return render(request, "page-profile-orders.html", content)
+
+
+class BuyurtmaQosh(View):
+    def get(self, request):
+        Buyurtma.objects.create(
+            savat=Savat.objects.get(profil=request.user)
+        )
+        return redirect("/buyurtma/buyurtmalar/")
 
 
 class SavatlarView(View):

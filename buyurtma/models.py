@@ -34,3 +34,14 @@ class SavatItem(models.Model):
         savat.total_sum = total
         savat.save()
         super(SavatItem, self).save(*args, **kwargs)
+
+
+class Buyurtma(models.Model):
+    savat = models.ForeignKey(Savat, on_delete=models.CASCADE)
+    yetkazish_puli = models.PositiveSmallIntegerField(default=5)
+    sana = models.DateField(auto_now_add=True)
+    umumiy_summa = models.PositiveIntegerField(default=0)
+
+    def save(self, *args, **kwargs):
+        self.umumiy_summa = self.yetkazish_puli * self.savat.total_sum
+        super(Buyurtma, self).save(*args, **kwargs)
