@@ -109,3 +109,13 @@ class SavatItemDelete(View):
     def get(self, request, pk):
         SavatItem.objects.filter(id=pk).delete()
         return redirect("/buyurtma/savatlar/")
+
+
+class ProfilView(View):
+    def get(self, request):
+        return render(request, "page-profile-main.html")
+
+
+class SettingView(View):
+    def get(self, request):
+        return render(request, "page-profile-setting.html")

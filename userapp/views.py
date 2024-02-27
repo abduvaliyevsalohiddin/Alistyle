@@ -64,3 +64,9 @@ class KodTasdiqlash(View):
             profil.save()
             return redirect("/user/login/")
         return redirect("/user/tasdiqlash/")
+
+
+class LogoutView(View):
+    def get(self, request):
+        logout(request)
+        return redirect("/")

@@ -4,18 +4,14 @@ from .models import *
 from django.db.models import Avg
 
 
-class HomeNoView(View):
-    def get(self, request):
-        content = {
-            "bolimlar": Bolim.objects.all()[:8]
-        }
-        return render(request, "page-index-2.html")
-
 
 class HomeView(View):
     def get(self, request):
         content = {
-            "bolimlar": Bolim.objects.all()[:8]
+            "bolimlar": Bolim.objects.all()[:8],
+            "mahsulotlar": Mahsulot.objects.all(),
+            "chegirmali_mahsulotlar": Mahsulot.objects.filter(chegirma__gt=0),
+            "rasmlar": Media.objects.all()
         }
         return render(request, "page-index.html", content)
 
